@@ -1,10 +1,13 @@
 import mysql from 'mysql';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const connection = mysql.createConnection({
-    host: "remotemysql.com",
-    user: 'o3GFt4AC9E',
-    password: 'lXfNDwGcpY',
-    database: 'o3GFt4AC9E',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     port: 3306
   });
   
@@ -18,5 +21,5 @@ const connection = mysql.createConnection({
     connection.query('SELECT 1');
   }, 60000);
 
-  
+
   export = connection;
