@@ -1,6 +1,8 @@
 # techwondoe
 Clone this Repo on your machine
 
+Find ENV file in mail and place it in root directory.
+
 get to root directory and run command "docker-compose up" to start up container and run
 
 You are ready to GO on PORT 3000
