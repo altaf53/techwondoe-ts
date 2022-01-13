@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "8f57ae04-940d-46c9-a08b-28314ee837c7",
+		"name": "Techwondoe Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDIwOTY0MTAsImV4cCI6MTY0MjEwMDAxMH0.dWtPy-7KOB_woD0Q5tPRyDGmDNwIFpg2d2n_Y_2pmKw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "company_name",
+							"value": "Apple",
+							"type": "text"
+						},
+						{
+							"key": "ceo_name",
+							"value": "Steve Jobs",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "California",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "1985/05/12",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addCompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search company by name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDIwOTY0MTAsImV4cCI6MTY0MjEwMDAxMH0.dWtPy-7KOB_woD0Q5tPRyDGmDNwIFpg2d2n_Y_2pmKw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "company_name",
+							"value": "apple",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/searchcompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"searchcompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new team",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDIwOTY0MTAsImV4cCI6MTY0MjEwMDAxMH0.dWtPy-7KOB_woD0Q5tPRyDGmDNwIFpg2d2n_Y_2pmKw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lead_name",
+							"value": "Salim",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/addteam/15",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addteam",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all teams",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDIwOTY0MTAsImV4cCI6MTY0MjEwMDAxMH0.dWtPy-7KOB_woD0Q5tPRyDGmDNwIFpg2d2n_Y_2pmKw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/getteam",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getteam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search company by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDIwOTY0MTAsImV4cCI6MTY0MjEwMDAxMH0.dWtPy-7KOB_woD0Q5tPRyDGmDNwIFpg2d2n_Y_2pmKw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\":\"by\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/getcompany/15",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getcompany",
+						"15"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

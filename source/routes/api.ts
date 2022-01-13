@@ -7,8 +7,9 @@ import verifyToken from '../middleware/auth';
 
 const router = express.Router();
 
+//DOES NOTHING BUT SAYS HELLLLO
 router.get('/', (req: Request, res: Response) => {
-    res.send("hello world")
+    res.send("HELLLLO TECHWONDOE")
 });
 
 //LOGIN API RETURN JWT TOKEN
@@ -19,7 +20,7 @@ router.get('/login', (req: Request, res: Response) => {
         "token": token
     })
 });
-
+//ADDS NEW COMPANY ANY RETURNS ID
 router.post('/addCompany', verifyToken, (req, res) => {
     if(!(req.body.company_name && req.body.ceo_name && req.body.address && req.body.date)){
         return res.status(400).send("company_name, ceo_name, address and date are required")
@@ -36,7 +37,7 @@ router.post('/addCompany', verifyToken, (req, res) => {
 
     con.query('INSERT into company SET ?', data, (err, success) => {
         if(err) {
-            console.log(err);
+            // console.log(err);
 
             if(err.errno == 1062){
                 return res.status(400).send("Company " + req.body.company_name + " already exists");
@@ -59,7 +60,7 @@ router.post('/searchCompany', verifyToken, (req, res) => {
 
     con.query('SELECT * FROM company WHERE cname =?', req.body.company_name, (err, data) => {
         if(err){
-            console.log(err);
+            // console.log(err);
 
             return res.status(400).send("Error. Please try again later")
         }
@@ -83,7 +84,7 @@ router.get('/getCompany/:id', verifyToken, (req, res) => {
 
     con.query('SELECT * FROM company WHERE uuid =?', id, (err, data) => {
         if(err){
-            console.log(err);
+            // console.log(err);
 
             return res.status(400).send("Error. Please try again later")
         }
@@ -110,10 +111,14 @@ router.post('/addTeam/:id', verifyToken, (req, res) => {
 
     con.query('INSERT into team SET ?', data, (err, success) => {
         if(err) {
-            console.log(err.errno);
+            // console.log(err);
 
             if(err.errno == 1452){
                 return res.status(400).send("Invalid Company ID");
+            }
+
+            if(err.errno == 1216){
+                return res.status(400).send("No company with ID: " + req.params.id + " exists in our records");
             }
 
             return res.status(400).send("Error. Please try again later");
@@ -130,7 +135,7 @@ router.get('/getTeam', verifyToken, (req, res) => {
 
     con.query('SELECT company.cname, team.tleadname FROM company INNER JOIN team ON company.uuid = team.cid;', (err, data) => {
         if(err){
-            console.log(err);
+            // console.log(err);
 
             return res.status(400).send("Error. Please try again later");
         }
